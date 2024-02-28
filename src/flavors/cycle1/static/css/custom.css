@@ -1,0 +1,747 @@
+@import url('/static/css/city-wide-ext.css');
+
+/*
+ * This CSS file follows the default Shareabouts style.css.
+ * All rules herein will override the default Shareabouts styles.
+ * NOTE: "With great power comes great responsibility."
+ */
+
+:root {
+  --charles-blue: #091f2f;
+  --optimistic-blue: #288be4;
+  --freedom-trail-red: #fb4d42;
+
+  --supporting-red-1: #d22d23; /* This is not in the style guide, but is the bg color of the menu button on boston.gov */
+
+  --supporting-blue-1: #061622;
+  --supporting-blue-2: #0C2639;
+  --supporting-blue-3: #45789C;
+  --supporting-blue-4: #51ACFF;
+  --supporting-blue-5: #1871bd; /* This is not in the style guide, but is the bg color for buttons on boston.gov */
+
+  --supporting-gray-1: #58585B;
+  --supporting-gray-2: #D2D2D2;
+  --supporting-gray-3: #E0E0E0;
+  --supporting-gray-4: #F2F2F2;
+
+  --icon-color-01: #fb4d42;
+  --icon-color-02: #fa8b41;
+  --icon-color-03: #fac241;
+  --icon-color-04: #faee41;
+  --icon-color-05: #b6fa41;
+  --icon-color-06: #75fa41;
+  --icon-color-07: #41eafa;
+  --icon-color-08: #4185fa;
+  --icon-color-09: #4441fa;
+  --icon-color-10: #8b41fa;
+  --icon-color-11: #e441fa;
+
+  --banner-height: 65px;
+
+  --header-font: 'Montserrat', 'Mada', sans-serif;
+  --body-font: 'Lora', 'Markazi', serif;
+}
+
+body {
+  font-family: var(--body-font);
+  color: var(--charles-blue);
+  background-color: var(--charles-blue);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--header-font);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+p {
+  font-size: 1.125rem;
+  line-height: 1.5em;
+}
+
+#map {
+  background-color: var(--charles-blue);
+}
+
+.btn, .btn:visited, .btn:link {
+  padding: 1.275em 1.5em;
+  background-color: var(--optimistic-blue);
+  font-family: var(--header-font);
+  font-size: 0.77778rem;
+  color: white;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.btn:hover {
+  background-color: var(--freedom-trail-red);
+}
+
+/* .btn-primary, .btn-primary:visited, .btn-primary:link {
+  font-size: 1rem;
+} */
+
+/* =Header
+-------------------------------------------------------------- */
+#site-header {
+  box-sizing: border-box;
+  padding: 0.5rem;
+  height: var(--banner-height);
+  background-color: white;
+}
+
+#site-title {
+  float: none;
+  font-family: var(--header-font);
+  color: var(--charles-blue);
+  text-shadow: none;
+}
+
+.menu .btn-block {
+  padding: 1.275em 1.5em;
+  background-color: var(--supporting-blue-5);
+  color: white;
+}
+
+.access {
+  float: none;
+  margin: 0.5rem -0.5rem;
+  width: calc(100% + 1rem);
+  background-color: var(--charles-blue);
+}
+
+.access .btn {
+  text-align: left;
+  padding: 1.75rem 1.25rem;
+  border: none;
+  box-shadow: none;
+}
+
+.access li {
+  padding-bottom: 2px;
+}
+
+.access li li {
+  padding-bottom: 0;
+  padding-top: 2px;
+  padding-left: 1.5rem;
+}
+
+.has-pages #site-title {
+  padding-left: var(--banner-height);
+}
+
+#site-title a {
+  display: flex;
+}
+
+#site-title a:link, #site-title a:visited {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: var(--charles-blue);
+}
+
+#site-title .boston-icon {
+  /* intrinsic size of the boston icon is 54px x 84px */
+  --aspect-ratio: calc(54 / 84);
+  --icon-height: 2rem;
+
+  display: block;
+  height: var(--icon-height);
+  margin: -0.5rem 0.5rem -0.5rem -0.5rem;
+  padding:
+    calc(var(--banner-height) / 2 - var(--icon-height) / 2)
+    calc(var(--banner-height) / 2 - var(--icon-height) * var(--aspect-ratio) / 2);
+  background-color: var(--charles-blue);
+}
+
+#site-title .pb-icon {
+  /* intrinsic size of the boston icon is 182px x 174px */
+  --aspect-ratio: calc(182 / 174);
+  --icon-height: 2.5rem;
+
+  display: none;
+  height: var(--icon-height);
+  margin: -0.5rem 0 -0.5rem -0.5rem;
+  padding:
+    calc(var(--banner-height) / 2 - var(--icon-height) / 2)
+    calc(var(--banner-height) / 2 - var(--icon-height) * var(--aspect-ratio) / 2);
+  background-color: white;
+}
+
+#site-title .boston-logo {
+  display: none;
+}
+
+#nav-btn {
+  left: 0;
+  top: 0;
+  width: var(--banner-height);
+  height: var(--banner-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: var(--supporting-red-1);
+
+  font-size: 3rem;
+  color: white;
+  text-shadow: none;
+}
+
+.menu-item-filter-type > .btn::after {
+  content: '…';
+}
+
+.menu-item-filter-type li .btn::before {
+  content: '›\a0\a0\a0';  /* U+00a0 is non-breaking space */
+}
+
+.user-menu {
+  display: none;
+}
+
+/* =Form
+-------------------------------------------------------------- */
+
+input[type=date],
+input[type=datetime],
+input[type=datetime-local],
+input[type=email],
+input[type=month],
+input[type=number],
+input[type=password],
+input[type=tel],
+input[type=text],
+input[type=time],
+input[type=url],
+input[type=week],
+.radio-label-text,
+.checkbox-label-text,
+select,
+textarea {
+  border-color: var(--charles-blue);
+  color: var(--charles-blue);
+  font-family: var(--body-font);
+  font-weight: normal;
+  text-transform: none;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid #007fbf;
+}
+
+label {
+  font-family: var(--header-font);
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--charles-blue);
+}
+
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.radio-label-text, .checkbox-label-text {
+  display: block;
+  width: 8rem;
+  height: 8rem;
+  box-sizing: border-box;
+  padding-top: 50%;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.location-receiver {
+  font-weight: normal;
+}
+
+.help-text {
+  font-style: italic;
+}
+
+/* City-wide toggle buttons */
+[name="city_wide"] + .label-text {
+  background-size: 4rem;
+  background-repeat: no-repeat;
+  background-position-x: 50%;
+}
+[name="city_wide"] + .label-text:hover {
+  background-color: var(--supporting-gray-4);
+  color: var(--charles-blue);
+  border-color: var(--charles-blue);
+}
+[name="city_wide"]:checked + .label-text {
+  background-color: var(--optimistic-blue);
+  color: white;
+  border-color: var(--optimistic-blue);
+}
+
+[name="city_wide"][value="false"] + .label-text {
+  background-image: url("/static/img/specific-location.svg");
+}
+[name="city_wide"][value="true"] + .label-text {
+  background-image: url("/static/img/city-hall.svg");
+}
+
+/* Location type buttons */
+[name="location_type"] + .label-text {
+  background-size: 4rem;
+  background-repeat: no-repeat;
+  background-position-x: 50%;
+}
+
+[name="location_type"][value="arts_culture"] + .label-text {
+  background-image: url("/static/img/categories/arts_culture.svg");
+}
+[name="location_type"][value="community"] + .label-text {
+  background-image: url("/static/img/categories/community.svg");
+}
+[name="location_type"][value="economy_workers"] + .label-text {
+  background-image: url("/static/img/categories/economy_workers.svg");
+}
+[name="location_type"][value="education_youth"] + .label-text {
+  background-image: url("/static/img/categories/education_youth.svg");
+}
+[name="location_type"][value="sustainability"] + .label-text {
+  background-image: url("/static/img/categories/sustainability.svg");
+}
+[name="location_type"][value="facilities"] + .label-text {
+  background-image: url("/static/img/categories/facilities.svg");
+}
+[name="location_type"][value="human_services"] + .label-text {
+  background-image: url("/static/img/categories/human_services.svg");
+}
+[name="location_type"][value="public_safety"] + .label-text {
+  background-image: url("/static/img/categories/public_safety.svg");
+}
+[name="location_type"][value="streets_sidewalks"] + .label-text {
+  background-image: url("/static/img/categories/streets_sidewalks.svg");
+}
+[name="location_type"][value="transportation"] + .label-text {
+  background-image: url("/static/img/categories/transportation.svg");
+}
+[name="location_type"][value="other"] + .label-text {
+  background-image: url("/static/img/categories/other.svg");
+}
+
+[name="location_type"] + .label-text:hover {
+  background-color: var(--supporting-gray-4);
+  border-color: var(--charles-blue);
+  color: var(--charles-blue);
+}
+
+[name="location_type"][value="arts_culture"] + .label-text:hover {
+  border-color: var(--icon-color-01);
+}
+[name="location_type"][value="community"] + .label-text:hover {
+  border-color: var(--icon-color-02);
+}
+[name="location_type"][value="economy_workers"] + .label-text:hover {
+  border-color: var(--icon-color-03);
+}
+[name="location_type"][value="education_youth"] + .label-text:hover {
+  border-color: var(--icon-color-04);
+}
+[name="location_type"][value="sustainability"] + .label-text:hover {
+  border-color: var(--icon-color-05);
+}
+[name="location_type"][value="facilities"] + .label-text:hover {
+  border-color: var(--icon-color-06);
+}
+[name="location_type"][value="human_services"] + .label-text:hover {
+  border-color: var(--icon-color-07);
+}
+[name="location_type"][value="public_safety"] + .label-text:hover {
+  border-color: var(--icon-color-08);
+}
+[name="location_type"][value="streets_sidewalks"] + .label-text:hover {
+  border-color: var(--icon-color-09);
+}
+[name="location_type"][value="transportation"] + .label-text:hover {
+  border-color: var(--icon-color-10);
+}
+[name="location_type"][value="other"] + .label-text:hover {
+  border-color: var(--icon-color-11);
+}
+
+[name="location_type"][value="arts_culture"]:checked + .label-text {
+  background-color: var(--icon-color-01);
+  border-color: var(--icon-color-01);
+  color: white;
+}
+[name="location_type"][value="community"]:checked + .label-text {
+  background-color: var(--icon-color-02);
+  border-color: var(--icon-color-02);
+  color: var(--charles-blue);
+}
+[name="location_type"][value="economy_workers"]:checked + .label-text {
+  background-color: var(--icon-color-03);
+  border-color: var(--icon-color-03);
+  color: var(--charles-blue);
+}
+[name="location_type"][value="education_youth"]:checked + .label-text {
+  background-color: var(--icon-color-04);
+  border-color: var(--icon-color-04);
+  color: var(--charles-blue);
+}
+[name="location_type"][value="sustainability"]:checked + .label-text {
+  background-color: var(--icon-color-05);
+  border-color: var(--icon-color-05);
+  color: var(--charles-blue);
+}
+[name="location_type"][value="facilities"]:checked + .label-text {
+  background-color: var(--icon-color-06);
+  border-color: var(--icon-color-06);
+  color: var(--charles-blue);
+}
+[name="location_type"][value="human_services"]:checked + .label-text {
+  background-color: var(--icon-color-07);
+  border-color: var(--icon-color-07);
+  color: var(--charles-blue);
+}
+[name="location_type"][value="public_safety"]:checked + .label-text {
+  background-color: var(--icon-color-08);
+  border-color: var(--icon-color-08);
+  color: white;
+}
+[name="location_type"][value="streets_sidewalks"]:checked + .label-text {
+  background-color: var(--icon-color-09);
+  border-color: var(--icon-color-09);
+  color: white;
+}
+[name="location_type"][value="transportation"]:checked + .label-text {
+  background-color: var(--icon-color-10);
+  border-color: var(--icon-color-10);
+  color: white;
+}
+[name="location_type"][value="other"]:checked + .label-text {
+  background-color: var(--icon-color-11);
+  border-color: var(--icon-color-11);
+  color: white;
+}
+
+/* =Place detail
+-------------------------------------------------------------- */
+
+.place-label {
+  font-family: var(--header-font);
+  font-weight: bold;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+/* =Ticker
+-------------------------------------------------------------- */
+
+#ticker {
+  background-color: var(--charles-blue);
+}
+
+/* =Colophon
+-------------------------------------------------------------- */
+
+#colophon {
+  background-color: var(--charles-blue);
+}
+
+/* =List view
+-------------------------------------------------------------- */
+
+#list-container {
+  padding: 0 1rem 1rem 1rem;
+}
+
+.list-toggle-btn, .list-toggle-btn:visited, .list-toggle-btn:link {
+  margin-left: 1.25rem;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  color: var(--charles-blue);
+  font-weight: normal;
+}
+
+.show-the-map {
+  padding: 0;
+  padding-left: 1.25rem;
+  background-image: url("/static/css/images/show-map-icon.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.show-the-list {
+  padding: 0;
+  padding-left: 1.25rem;
+  background-image: url("/static/css/images/show-list-icon.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.place-list-header {
+  background-color: var(--charles-blue);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 -1rem;
+  padding: 1rem;
+}
+
+.list-search-form {
+  display: flex;
+}
+
+.list-search-form input, .list-sort-menu {
+  float: none;
+}
+
+.list-sort-menu {
+  padding: 0;
+}
+
+.list-sort-menu a {
+  color: white;
+  font-weight: normal;
+  font-family: var(--header-font);
+}
+
+.list-sort-menu a.is-selected {
+  color: inherit;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.list-sort-menu a:hover {
+  color: var(--supporting-red-1);
+}
+
+/* =Media Queries
+-------------------------------------------------------------- */
+
+@media only screen and (min-width: 768px) {
+  #site-title .pb-icon {
+    display: block;
+  }
+
+  .menu {
+    border: 2px solid var(--charles-blue);
+    min-width: 20rem;
+  }
+
+  .menu-item {
+    border-bottom: 2px solid var(--charles-blue);
+  }
+
+  .menu-item:last-child {
+    border-bottom: none;
+  }
+
+  .menu .btn {
+    border-radius: 0;
+  }
+
+  /* The remainder of the rules in this media query are overriding the 60rem
+   * min-width media query in the default stylesheet (at a base font size of
+   * 16px, 60rem is 960px, and so falls between the 768 and 1024 breakpoints).
+   */
+  .access {
+    font-size: 0.875em;
+    display: none;
+    position: static;
+  }
+
+  .access li {
+    float: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .access li ul {
+    display: block;
+    padding-top: 2px;
+  }
+
+  .access li:hover > ul, .access li:hover > form > ul {
+    display: block;
+    background: var(--charles-blue);
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    position: static;
+  }
+
+  .access li li {
+    padding-top: 2px;
+  }
+
+  .access li li .btn {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .access li li .btn:hover {
+    background-color: var(--freedom-trail-red);
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  #site-header {
+    display: flex;
+    justify-content: left;
+  }
+
+  #site-header::before {
+    content: none;
+  }
+
+  #site-header::after {
+    content: none;
+  }
+
+  .has-pages #site-title{
+    height: 100%;
+    padding-left: 0;
+    flex-grow: 1;
+  }
+
+  #nav-btn {
+    display: none;
+  }
+
+  #site-title a:link, #site-title a:visited {
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+      "pb-icon boston-logo"
+      "pb-icon pb-label";
+    grid-template-columns: max-content max-content;
+    font-size: 1.2rem;
+  }
+
+  #site-title .boston-icon {
+    display: none;
+  }
+
+  #site-title .pb-icon {
+    --icon-height: 3rem;
+    grid-area: pb-icon;
+  }
+
+  #site-title .boston-logo {
+    grid-area: boston-logo;
+    display: block;
+    height: 1.2rem;
+  }
+
+  .access {
+    display: block;
+    top: 0;
+    margin: 0;
+    background: none;
+    height: 100%;
+  }
+
+  .access .menu {
+    display: flex;
+    height: 100%;
+    border: none;
+    align-items: center;
+  }
+
+  .access .menu-item {
+    border: none;
+  }
+
+  .access li ul {
+    display: none;
+  }
+
+  .access .menu > li {
+    float: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .access .menu > li > .btn {
+    padding: 0;
+    margin-left: 1.25rem;
+    background: none;
+    color: var(--charles-blue);
+    font-weight: normal;
+  }
+
+  .access .menu > li > .btn:hover {
+    color: var(--supporting-red-1);
+  }
+
+  .access li:hover > ul, .access li:hover > form > ul {
+    position: absolute;
+    left: 1.25rem;
+    border: none;
+    box-shadow: none;
+    background-color: var(--charles-blue);
+    top: 215%;
+  }
+
+  .access li:hover > #current-filter-type {
+    /* Ensure a minimum size for the current filter type so that the
+     * filter menu stays open for the mouse.
+     */
+    min-height: 2rem;
+    min-width: 100%;
+  }
+
+  .list-toggle-btn:hover {
+    color: var(--supporting-red-1);
+  }
+
+  #current-filter-type {
+    position: absolute;
+    left: 1.25rem;
+    text-align: left;
+    font-size: 0.8rem;
+    font-weight: normal;
+    font-style: italic;
+    color: var(--supporting-blue-3);
+  }
+
+  .access li li {
+    padding: 0 2px 2px 2px;
+  }
+
+  .access li li:first-child {
+    padding-top: 2px;
+  }
+
+  .access li li .btn {
+    margin: 0;
+  }
+
+  #map-container, #content, #ticker, #list-container {
+    top: calc(var(--banner-height) + 2px);
+  }
+
+  .place-list-header {
+    max-width: none;
+  }
+
+  .list-toggle-nav {
+    float: none;
+    display: flex;
+    align-items: center;
+    width: auto;
+    margin: 0;
+    position: static;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+}
